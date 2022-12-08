@@ -47,7 +47,7 @@ public class AdvancedHashTable<T> implements HashTable<T> {
             return null;
         }
 
-        HashTableEntry<T> result = buckets[targetIndex].find((currentItem, index) -> currentItem.getKey().equals(key));
+        HashTableEntry<T> result = buckets[targetIndex].forEach((currentItem, index) -> currentItem.getKey().equals(key));
         return result == null ? null : result.getValue();
     }
 

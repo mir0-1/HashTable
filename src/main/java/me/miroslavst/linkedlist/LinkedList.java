@@ -19,16 +19,6 @@ public class LinkedList<T> {
         size++;
     }
 
-    public T find(DataIterateFunction<T> dataIterateFunction) {
-        TraverseInfo<T> traverseInfo = traverseAll((currentItem, index) -> dataIterateFunction.execute(currentItem.getValue(), index));
-
-        if (traverseInfo.wasExecuteSuccessful()) {
-            return traverseInfo.getCurrentNode().getValue();
-        }
-
-        return null;
-    }
-
     public boolean remove(DataIterateFunction<T> dataIterateFunction) {
         TraverseInfo<T> traverseInfo = traverseAll(((currentItem, index) -> dataIterateFunction.execute(currentItem.getValue(), index)));
 
